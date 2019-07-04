@@ -32,3 +32,8 @@ Note: Use python3 to run the source code.
 With the help of the clang, we extracted all the features and saved it in a arff file along with the Tf and TFIDF values. ARFF stands for Attribute-Relation File Format. It is an ASCII text file that describes a list of instances sharing a set of attributes. ARFF files have two distinct sections. The first section is the Header information, which is followed by the Data information.
 The Header of the ARFF file contains the name of the relation, a list of the attributes (the columns in the data), and their types.Feeding this output to the weka software we were able to get the accuracy of 57 percent without using Classification relaxationa and information gain. 
 
+## TODO
+* Binary feature Extraction
+* Average Depth of every token
+* Replace Weka with your python code for classifier
+
