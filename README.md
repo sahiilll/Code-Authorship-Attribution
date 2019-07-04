@@ -11,6 +11,22 @@ It parses the source code, checking it for errors and turning the input code int
 
 Using the clang, The code traverses through the abstract syntax trees and collects all the different type of nodes and tokens in the dictionary as its keys. The values of these depends on the type of measure. There are three type of values for now TF i.e. Term frequency (the ratio of the occurence of the keys(token + Node) in each file) and TFIDF(how much important is that token for the feature). For further reading refer, http://www.tfidf.com/
 
+## Setup
+
+* First you need to install clang on your machine. Follow this guide https://clang.llvm.org/get_started.html, to install the clang. clang comes along with the llvm tool set so this might take some time. 
+* It does not matter where you downloaded and installed the clang. You need to setup a PYTHONPATH to point to the python folder in clang. For example for me the command I used was 
+```
+export PYTHONPATH=$PYTHONPATH:/home/sahil/llvm-project/clang/bindings/python
+```
+That's it now the source code knows where the python functions are. 
+* But this is not the end. You also need to tell the clang object, the path where it clang.py will point to refer llvm library. You can do that by inserting one line into your code 
+```
+clang.cindex.Config.set_library_path("/usr/lib/llvm-6.0/lib")
+```
+* Now you are all set to run the file. 
+Note: Use python3 to run the source code. 
+* To read the data files, change the root directry path in readpaths function to pick up the cpp files. 
+
 ## Result
 ### Syntactical Features
 With the help of the clang, we extracted all the features and saved it in a arff file along with the Tf and TFIDF values. ARFF stands for Attribute-Relation File Format. It is an ASCII text file that describes a list of instances sharing a set of attributes. ARFF files have two distinct sections. The first section is the Header information, which is followed by the Data information.
